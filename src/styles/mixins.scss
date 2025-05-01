@@ -1,0 +1,26 @@
+
+$breakpoint-tiny: 1px;
+$breakpoint-mobile: 360px;
+$breakpoint-tablet: 600px;
+$breakpoint-desktop: 1000px;
+
+@mixin tiny() {
+    @media screen and (min-width: $breakpoint-tiny) {
+      @content;
+    }
+}
+@mixin mobile() {
+    @media screen and (min-width: $breakpoint-mobile) {
+      @content;
+    }
+}
+@mixin tablet() {
+    @media screen and (min-width: $breakpoint-tablet) {
+      @content;
+    }
+}
+@mixin desktop() {
+    @media screen and (min-width: $breakpoint-desktop) {
+      @content;
+    }
+}

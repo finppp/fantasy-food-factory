@@ -1,0 +1,41 @@
+@use '@/styles/mixins';
+
+.Header {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: var(--background);
+    border-bottom: var(--border);
+    z-index: 100;
+    @include mixins.tablet {
+        flex-direction: row-reverse;
+    }
+}
+
+.titleCondensed {
+    display: flex;
+
+    @include mixins.mobile {
+        display: none;
+    }
+}
+
+.titleFull {
+    display: none;
+
+    @include mixins.mobile {
+        display: flex;
+    }
+}
+
+.menuButton {
+    display: flex;
+    flex-shrink: 0;
+
+    .icon {
+        font-size: 3em;
+    }
+}

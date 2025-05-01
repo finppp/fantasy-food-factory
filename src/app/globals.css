@@ -1,14 +1,18 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #354c55;
+  --foreground: #ffffff;
+  --border: 2px var(--foreground) solid;
+  --border-inverted: 2px var(--background) solid;
+  
 }
 
-@media (prefers-color-scheme: dark) {
+/* TODO add dark mode */
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html,
 body {
@@ -39,4 +43,22 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+button {
+  all: unset;
+  /* Resets button-specific styles */
+  cursor: pointer;
+  /* Reapply pointer cursor for buttons */
+}
+
+ul,
+ol {
+  list-style: none; /* Removes bullet points and numbers */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+li {
+  list-style: none; /* Ensures no list style is applied to list items */
 }
