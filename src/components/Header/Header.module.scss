@@ -12,6 +12,7 @@
     z-index: 100;
     @include mixins.tablet {
         flex-direction: row-reverse;
+        padding: 1rem;
     }
 }
 
@@ -25,16 +26,34 @@
 
 .titleFull {
     display: none;
+    text-align: right;
 
     @include mixins.mobile {
         display: flex;
     }
 }
 
-.menuButton {
+.openMenuButton {
     display: flex;
     flex-shrink: 0;
-
+    .textMobile {
+        display: flex;
+        padding-right: 1rem;
+        @include mixins.tablet {
+            display: none;
+        }
+    }
+    .textDesktop {
+        display: none;
+        @include mixins.tablet {
+            display: flex;
+        }
+    }
+    > h2 {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     .icon {
         font-size: 3em;
     }

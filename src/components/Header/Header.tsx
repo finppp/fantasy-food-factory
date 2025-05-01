@@ -9,11 +9,14 @@ export const Header = () => {
     return (
         <>
             <header className={styles.Header}>
-                <button onClick={() => {setShowMenu(true)}} className={styles.menuButton}>☰ open menu</button>
+                <button onClick={() => { setShowMenu(true) }} className={styles.openMenuButton}>
+                    <h2 className={styles.textMobile}>☰</h2>
+                    <h2 className={styles.textDesktop}>☰ open menu</h2>
+                </button>
                 <h1 className={styles.titleFull}>Fantasy Food Factory</h1>
                 <h1 className={styles.titleCondensed}>FFFF</h1>
             </header>
-            <Menu setShowMenu={setShowMenu} showMenu={showMenu}/>
+            <Menu setShowMenu={setShowMenu} showMenu={showMenu} />
         </>
     )
 }
