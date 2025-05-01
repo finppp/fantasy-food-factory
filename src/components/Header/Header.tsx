@@ -13,8 +13,8 @@ export const Header = () => {
                     <h2 className={styles.textMobile}>☰</h2>
                     <h2 className={styles.textDesktop}>☰ open menu</h2>
                 </button>
-                <h1 className={styles.titleFull}>Fantasy Food Factory</h1>
                 <h1 className={styles.titleCondensed}>FFFF</h1>
+                <h1 className={styles.titleFull}>Fantasy Food Factory</h1>
             </header>
             <Menu setShowMenu={setShowMenu} showMenu={showMenu} />
         </>

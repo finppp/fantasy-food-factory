@@ -37,6 +37,7 @@
     display: flex;
     flex-shrink: 0;
     .textMobile {
+        font-size: 2rem;
         display: flex;
         padding-right: 1rem;
         @include mixins.tablet {
@@ -45,13 +46,11 @@
     }
     .textDesktop {
         display: none;
-        @include mixins.tablet {
-            display: flex;
-        }
-    }
-    > h2 {
         &:hover {
             text-decoration: underline;
+        }
+        @include mixins.tablet {
+            display: flex;
         }
     }
     .icon {
