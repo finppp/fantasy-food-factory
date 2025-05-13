@@ -3,7 +3,6 @@
   --foreground: #ffffff;
   --border: 2px var(--foreground) solid;
   --border-inverted: 2px var(--background) solid;
-  
 }
 
 /* TODO add dark mode */
