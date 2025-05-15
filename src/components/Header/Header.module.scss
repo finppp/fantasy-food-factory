@@ -3,6 +3,7 @@
 .Header {
     display: flex;
     position: fixed;
+    top: 0;
     width: 100vw;
     align-items: center;
     justify-content: space-between;
@@ -13,6 +14,13 @@
     @include mixins.tablet {
         flex-direction: row-reverse;
         padding: 1rem;
+    }
+}
+
+.falseHeaderForSpacing {
+    height: 40px;
+    @include mixins.mobile {
+        height: 71px;
     }
 }
 

@@ -1,15 +1,16 @@
-'use client'
-import { useState } from 'react'
-import { Menu } from '../Menu'
-import styles from './Header.module.scss'
+'use client';
+import { useState } from 'react';
+import { Menu } from '../Menu';
+import styles from './Header.module.scss';
 
 export const Header = () => {
-    const [showMenu, setShowMenu] = useState<boolean>(false)
+    const [showMenu, setShowMenu] = useState<boolean>(false);
 
     return (
         <>
+            <div className={styles.falseHeaderForSpacing} />
             <header className={styles.Header}>
-                <button onClick={() => { setShowMenu(true) }} className={styles.openMenuButton}>
+                <button onClick={() => { setShowMenu(true); }} className={styles.openMenuButton}>
                     <h2 className={styles.textMobile}>☰</h2>
                     <h2 className={styles.textDesktop}>☰ open menu</h2>
                 </button>
@@ -18,5 +19,5 @@ export const Header = () => {
             </header>
             <Menu setShowMenu={setShowMenu} showMenu={showMenu} />
         </>
-    )
-}
+    );
+};
