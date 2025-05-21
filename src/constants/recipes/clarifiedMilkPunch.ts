@@ -1,67 +1,67 @@
 import { AUTHORS } from '@/constants/authors/authors'
-import { TimeUnit, WeightUnit } from '@/types'
+import { Recipe, TimeUnit, WeightUnit } from '@/types'
 import { PREP_METHODS } from '..'
 
-export const CLARIFIED_MILK_PUNCH = {
+export const CLARIFIED_MILK_PUNCH: Recipe = {
   title: 'Clarified Milk Punch',
   slug: 'clarified-milk-punch',
-  portions: 2,
+  defaultPortions: 2,
   duration: {
-    number: 2,
+    count: 2,
     unit: TimeUnit.Days
   },
   description: 'This milky curdley coctail is one declicious joy',
   author: AUTHORS.finlay.key,
   difficulty: 4,
-  fatboiScore: 87,
+  unhealthinessRating: 87,
   ingredients: [
     {
       name: 'lemon',
       count: 6,
       unit: WeightUnit.count,
-      prepMethod: PREP_METHODS.zestedAndJuiced
+      preparationMethod: PREP_METHODS.zestedAndJuiced
     },
     {
       name: 'whole milk',
       count: 2,
       unit: WeightUnit.l,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     },
     {
       name: 'pineapple',
       count: 1,
       unit: WeightUnit.count,
-      prepMethod: PREP_METHODS.chopped
+      preparationMethod: PREP_METHODS.chopped
     },
     {
       name: 'really strong black tea',
       count: 250,
       unit: WeightUnit.ml,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     },
     {
       name: 'demmerearara sugar',
       count: 200,
       unit: WeightUnit.grams,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     },
     {
       name: 'gold rum',
       count: 500,
       unit: WeightUnit.ml,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     },
     {
       name: 'overproof rum',
       count: 200,
       unit: WeightUnit.ml,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     },
     {
       name: 'cinnamon',
       count: 1,
       unit: WeightUnit.stick,
-      prepMethod: PREP_METHODS.asItIs
+      preparationMethod: PREP_METHODS.asItIs
     }
   ],
   method: [

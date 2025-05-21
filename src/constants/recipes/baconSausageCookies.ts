@@ -6,7 +6,7 @@ export const BACON_SAUSAGE_COOKIES = {
   title: 'Bacon and sausage Cookies',
   slug: 'bacon-sausage-cookies',
   image: 'bacon-sausage-cookies.jpeg',
-  portions: 2,
+  defaultPortions: 2,
   duration: {
     number: 1,
     unit: TimeUnit.Hours

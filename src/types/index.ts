@@ -3,22 +3,24 @@ import { PREP_METHODS } from "@/constants";
 export interface Recipe {
     title: string,
     slug: string,
+    defaultPortions: number,
     duration: Duration, //count + units else e.g. 1, hour
     author: string, // get from list
     description: string,
-    difficulty: Difficulty,
+    difficulty: number,
     ingredients: Ingredient[],
     method: string[],
+    unhealthinessRating: number,
 }
 
 interface Ingredient {
     name: string,
     count: number,
     unit: WeightUnit,
-    preparationMethod: PreparationMethodKey,
+    preparationMethod: PreparationMethod,
 }
 
-interface Duration {
+export interface Duration {
     count: number,
     unit: TimeUnit,
 }

@@ -6,7 +6,7 @@ export const CORIANDER_SALAD: Recipe = {
   title: 'Randerz Salad',
   slug: 'coriander-salad',
   image: 'coriander-salad.jpg',
-  portions: 2,
+  defaultPortions: 2,
   duration: {
     count: 15,
     unit: TimeUnit.Minutes

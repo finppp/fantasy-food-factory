@@ -6,7 +6,7 @@ export const SUPER_NOODLES_SPAM = {
   title: 'Super noodles with spam',
   slug: 'super-noodles-spam',
   image: 'super-noodles-spam.jpg',
-  portions: 2,
+  defaultPortions: 2,
   duration: {
     number: 30,
     unit: TimeUnit.Minutes
