@@ -13,11 +13,26 @@ export interface Recipe {
     unhealthinessRating: number,
 }
 
-interface Ingredient {
+export interface RecipeWithStatus extends Omit<Recipe, 'method'> {
+    ingredients: IngredientWithStatus[],
+    method: MethodWithStatus[],
+}
+
+export interface Ingredient {
     name: string,
     count: number,
     unit: WeightUnit,
     preparationMethod: PreparationMethod,
+}
+
+export interface IngredientWithStatus extends Ingredient {
+    isPrepped: boolean,
+    isOwned: boolean,
+}
+
+export interface MethodWithStatus {
+    text: string,
+    completed: boolean,
 }
 
 export interface Duration {
@@ -61,9 +76,9 @@ export enum TimeUnit {
     Days = 'Days'
 }
 
-type Difficulty = 1 | 2 | 3 | 4 | 5;
+// type Difficulty = 1 | 2 | 3 | 4 | 5;
 
-type Unhealthiness = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+// type Unhealthiness = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export interface Author {
     firstName: string;
