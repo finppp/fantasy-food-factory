@@ -7,8 +7,9 @@ type State = {
   recipe: RecipeWithStatus;
   setRecipe: (recipe: RecipeWithStatus) => void;
   setIngredientPreppedStatus: (ingredientIndex: number, newValue: boolean) => void;
+  setIngredientOwnedStatus: (ingredientIndex: number, newValue: boolean) => void;
   isPrepCompleted: boolean;
-  // markStepComplete: (recipeId: string, stepIndex: number) => void;
+  areAllItemsOwned: boolean;
 };
 
 export const useRecipeStore = create<State>()(
@@ -38,35 +39,34 @@ export const useRecipeStore = create<State>()(
           };
         } )
       },
+      setIngredientOwnedStatus: (ingredientIndex: number, newValue: boolean) => {
+        set((state) => {
+          const updatedIngredients = [...state.recipe.ingredients];
+          updatedIngredients[ingredientIndex] = {
+            ...updatedIngredients[ingredientIndex],
+            isOwned: newValue,
+          };
+
+          return {
+            ...state,
+            recipe: {
+              ...state.recipe,
+              ingredients: updatedIngredients,
+            },
+          };
+        } )
+      },
       get isPrepCompleted() {
         const ingredients = get().recipe.ingredients || [];
-        console.log('ingredients', ingredients);
         return ingredients.length > 0 && ingredients.every((ingredient) => ingredient.isPrepped);
       },
-      // markStepComplete: (recipeId: string, stepIndex: number) =>
-      //   set((state) => {
-      //     const steps = new Set(state.progress[recipeId] || []);
-      //     steps.add(stepIndex);
-      //     return {
-      //       progress: {
-      //         ...state.progress,
-      //         [recipeId]: Array.from(steps),
-      //       },
-      //     };
-      //   }),
+      get areAllItemsOwned() {
+        const ingredients = get().recipe.ingredients || [];
+        return ingredients.length > 0 && ingredients.every((ingredient) => ingredient.isOwned);
+      },
     }),
     {
       name: 'recipe-progress', // key in localStorage
     }
   )
 );
-
-
-// const setIngredientAsPrepped = (isChecked: boolean, ingredientIndex: number) => {
-//   const updatedIngredients = [...recipe.ingredients]
-//   updatedIngredients[ingredientIndex].isPrepped = isChecked
-//   setRecipe({
-//     ...recipe,
-//     ingredients: updatedIngredients,
-//   })
-// }

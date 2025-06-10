@@ -1,10 +1,10 @@
 "use client"
 import { DIFFICULTIES, FATBOI_RATINGS } from '@/constants';
 import { Recipe } from '@/types';
-import { enhanceRecipe, generateDurationText, isPrepCompleted } from '@/utils';
-import { Checkbox } from '../Checkbox';
+import { areAllItemsOwned, enhanceRecipe, generateDurationText, isPrepCompleted } from '@/utils';
 import { useEffect } from 'react';
 import { useRecipeStore } from '@/store';
+import { IngredientList, IngredientListType } from '../IngredientList/IngredientList';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -13,13 +13,11 @@ interface RecipeViewerProps {
 export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
   const recipe = useRecipeStore((state) => state.recipe);
   const setRecipe = useRecipeStore((state) => state.setRecipe);
-  const setIngredientPreppedStatus = useRecipeStore((state) => state.setIngredientPreppedStatus);
 
   useEffect(() => {
     setRecipe(enhanceRecipe(recipeData));
   }, [recipeData]);
 
-console.log('recjle, ]', recipe);
   if (!recipe.title) {
     return <h1>Loading!</h1>;
   }
@@ -29,22 +27,17 @@ console.log('recjle, ]', recipe);
   return (
     <div>
       <h3>{title}</h3>
-      <h3>{`prepped?: ${isPrepCompleted(recipe.ingredients)}`}</h3>
+      <h3>{`Prepped?: ${isPrepCompleted(recipe.ingredients)}`}</h3>
+      <h3>{`Bought?: ${areAllItemsOwned(recipe.ingredients)}`}</h3>
       <h3>{description}</h3>
       <h3>{author}</h3>
       <h3>{DIFFICULTIES[difficulty]}</h3>
       <h3>{FATBOI_RATINGS[unhealthinessRating]}</h3>
       <h3>Time to make: {generateDurationText(duration)}</h3>
-      {ingredients.map((ingredient, index) => (
-        <div key={ingredient.name}>
-          <Checkbox
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setIngredientPreppedStatus(index, e.target.checked)
-            }
-          />
-          <p>{ingredient.name}</p>
-        </div>
-      ))}
+      <h2>BUY</h2>
+      <IngredientList listType={IngredientListType.buy} />
+      <h2>PREP</h2>
+      <IngredientList listType={IngredientListType.prep} />
     </div>
   );
 };
