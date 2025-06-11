@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import { DIFFICULTIES, FATBOI_RATINGS } from '@/constants';
 import { Recipe } from '@/types';
 import { areAllItemsOwned, enhanceRecipe, generateDurationText, isPrepCompleted } from '@/utils';
 import { useEffect } from 'react';
 import { useRecipeStore } from '@/store';
 import { IngredientList, IngredientListType } from '../IngredientList/IngredientList';
+import { Tabs } from '../Tabs';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -34,10 +35,22 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
       <h3>{DIFFICULTIES[difficulty]}</h3>
       <h3>{FATBOI_RATINGS[unhealthinessRating]}</h3>
       <h3>Time to make: {generateDurationText(duration)}</h3>
-      <h2>BUY</h2>
-      <IngredientList listType={IngredientListType.buy} />
-      <h2>PREP</h2>
-      <IngredientList listType={IngredientListType.prep} />
+      <Tabs tabs={[
+        {
+          label: 'Buy', content: (
+            <><h2>BUY</h2><IngredientList listType={IngredientListType.buy} /></>)
+        },
+        {
+          label: 'Prep', content: (
+            <><h2>PREP</h2><IngredientList listType={IngredientListType.prep} /></>
+          )
+        },
+        {
+          label: 'Cook', content: (
+            <><h2>Cook!</h2></>
+          )
+        },
+      ]} />
     </div>
   );
 };
