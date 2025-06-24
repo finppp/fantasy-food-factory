@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import styles from './Checkbox.module.scss';
 
 import { useId } from 'react';
@@ -13,8 +14,18 @@ export const Checkbox = ({ onChange, label, checked }: CheckboxProps) => {
 
   return (
     <div className={styles.Checkbox}>
-      <input checked={checked} id={id} type="checkbox" onChange={onChange} />
-      <label htmlFor={id}>{label}</label>
+      <input checked={checked} id={id} type="checkbox" onChange={(onChange)} />
+      <label className={styles.label} htmlFor={id}>
+        <div className={styles.box}>
+          {checked && <img className={styles.checkboxImage} src="/icons/times-light.svg" alt="check mark" />}
+        </div>
+        <p className={clsx({
+          [styles.text]: true,
+          [styles.checked]: checked,
+        })}>
+          {label}
+        </p>
+      </label>
     </div>
   );
 };

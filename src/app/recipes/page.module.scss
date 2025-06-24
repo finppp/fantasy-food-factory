@@ -1,0 +1,19 @@
+@use '@/styles/mixins';
+
+.grid {
+  margin: 1rem;
+  display: grid;
+  gap: 2rem;
+  @include mixins.tiny {
+    grid-template-columns: 1fr;
+  }
+  @include mixins.mobile {
+    grid-template-columns: 1fr;
+  }
+  @include mixins.tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include mixins.desktop {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

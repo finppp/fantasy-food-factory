@@ -1,0 +1,27 @@
+.RecipeCard {
+  // background-color: orange;
+  width: 100%;
+  // min-width: 400px;
+  // min-height: 400px;
+  .imageContainer {
+    position: relative;
+    min-height: 400px;
+    overflow: hidden; 
+  }
+  .image {
+    overflow: hidden; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .title {
+    padding-top: 0.5rem;
+  }
+  .recipeDetails {
+    
+  }
+}

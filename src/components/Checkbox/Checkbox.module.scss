@@ -1,6 +1,46 @@
+// .Checkbox {
+//   display: flex;
+//   * {
+//     cursor: pointer;
+//   }
+// }
+
 .Checkbox {
-  display: flex;
-  * {
+  &.checked {
+    opacity: 0.5;
+    transition: all 0.4s;
+  }
+  .label {
+    display: flex;
+    align-items: center;
     cursor: pointer;
+  }
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 10px 0;
+    border: 2px solid black;
+    border-radius: 3px;
+  }
+  .checkboxImage {
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+  }
+  .text {
+    &.checked {
+      text-decoration: line-through;
+    }
+  }
+  // Hide the input and use only label instead
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
 }
