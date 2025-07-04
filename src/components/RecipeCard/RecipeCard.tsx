@@ -12,9 +12,9 @@ export type RecipeCardProps = {
 export const RecipeCard = ({ imageUrl, title, url, description, difficulty }: RecipeCardProps) => {
   return (
     <a href={url} className={styles.RecipeCard}>
-      <div className={styles.imageContainer}>
         <Image className={styles.image} width={500} height={500} src={imageUrl} alt={`${title} image`} />
-      </div>
+      {/* <div className={styles.imageContainer}> */}
+      {/* </div> */}
       <div className={styles.recipeDetails}>
         <p>{description}</p>
         <p>{`${difficulty}/10 difficulty`}</p>

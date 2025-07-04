@@ -1,0 +1,31 @@
+@use '@/styles/mixins';
+
+.container {
+  padding: 1rem;
+  background-color: var(--background);
+}
+.containerAlt {
+  padding: 1rem;
+  background-color: var(--background-alt);
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  @include mixins.tiny {
+    grid-template-columns: 1fr;
+  }
+  @include mixins.mobile {
+    grid-template-columns: 1fr;
+  }
+  @include mixins.tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include mixins.desktop {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  > * {
+    // grid item
+    max-height: 100px;
+  }
+}
