@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useRecipeStore } from '@/store';
 import { IngredientList, IngredientListType } from '../IngredientList/IngredientList';
 import { Tabs } from '../Tabs';
+import { RecipeDetails } from '../RecipeDetails';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -27,14 +28,17 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
 
   return (
     <div>
-      <h3>{title}</h3>
-      <h3>{`Prepped?: ${isPrepCompleted(recipe.ingredients)}`}</h3>
-      <h3>{`Bought?: ${areAllItemsOwned(recipe.ingredients)}`}</h3>
-      <h3>{description}</h3>
-      <h3>{author}</h3>
-      <h3>{DIFFICULTIES[difficulty]}</h3>
-      <h3>{FATBOI_RATINGS[unhealthinessRating]}</h3>
-      <h3>Time to make: {generateDurationText(duration)}</h3>
+      <h1>{title}</h1>
+      <h2>{description}</h2>
+      {/* <h3>{`Prepped?: ${isPrepCompleted(recipe.ingredients)}`}</h3> */}
+      {/* <h3>{`Bought?: ${areAllItemsOwned(recipe.ingredients)}`}</h3> */}
+      <h3></h3>
+      <RecipeDetails
+        author={author}
+        difficulty={difficulty}
+        duration={duration}
+        unhealthinessRating={unhealthinessRating}
+      />
       <Tabs tabs={[
         {
           label: 'Buy', content: (

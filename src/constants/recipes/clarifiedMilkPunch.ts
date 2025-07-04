@@ -13,7 +13,7 @@ export const CLARIFIED_MILK_PUNCH: Recipe = {
   description: 'This milky curdley coctail is one declicious joy',
   author: AUTHORS.finlay.key,
   difficulty: 4,
-  unhealthinessRating: 87,
+  unhealthinessRating: 8,
   ingredients: [
     {
       name: 'lemon',
