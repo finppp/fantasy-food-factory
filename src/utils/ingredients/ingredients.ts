@@ -31,12 +31,12 @@ export const isIngredientAutoPrepped = (prepMethod: keyof PreparationMethod) => 
   return !PREP_METHODS[prepMethod].action
 }
 
-/** Scale all ingredient quantities to the multiplier */
-export const scaleIngredientQuantities = (ingredientsList, portions) => {
-  const portionedList = ingredientsList.map((ingredient) => {
-    const updatedIngredient = { ...ingredient }
-    updatedIngredient.count *= portions
-    return updatedIngredient
-  })
-  return portionedList
-}
+// /** Scale all ingredient quantities to the multiplier */
+// export const scaleIngredientQuantities = (ingredientsList, portions) => {
+//   const portionedList = ingredientsList.map((ingredient) => {
+//     const updatedIngredient = { ...ingredient }
+//     updatedIngredient.count *= portions
+//     return updatedIngredient
+//   })
+//   return portionedList
+// }

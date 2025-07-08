@@ -10,6 +10,11 @@ type State = {
   setIngredientOwnedStatus: (ingredientIndex: number, newValue: boolean) => void;
   isPrepCompleted: boolean;
   areAllItemsOwned: boolean;
+  setNumberOfPortions: (newPortionMultiplier: number) => void;
+  portions: {
+    quantity: number | null;
+    multiplier: number | null;
+  };
 };
 
 export const useRecipeStore = create<State>()(
@@ -20,7 +25,26 @@ export const useRecipeStore = create<State>()(
         set((state) => ({
           ...state,
           recipe,
-        }) )
+          portions: {
+            quantity: recipe.defaultPortions,
+            multiplier: 1,
+          },
+        }));
+      },
+      portions: {
+        quantity: null,
+        multiplier: null,
+      },
+      setNumberOfPortions: (newNumberOfPortions) => {
+        set((state) => {
+          return {
+            ...state,
+            portions: {
+              multiplier: newNumberOfPortions / state.recipe.defaultPortions,
+              quantity: newNumberOfPortions,
+            }
+          };
+        });
       },
       setIngredientPreppedStatus: (ingredientIndex: number, newValue: boolean) => {
         set((state) => {
@@ -37,7 +61,7 @@ export const useRecipeStore = create<State>()(
               ingredients: updatedIngredients,
             },
           };
-        } )
+        });
       },
       setIngredientOwnedStatus: (ingredientIndex: number, newValue: boolean) => {
         set((state) => {
@@ -54,7 +78,7 @@ export const useRecipeStore = create<State>()(
               ingredients: updatedIngredients,
             },
           };
-        } )
+        });
       },
       get isPrepCompleted() {
         const ingredients = get().recipe.ingredients || [];
@@ -64,6 +88,7 @@ export const useRecipeStore = create<State>()(
         const ingredients = get().recipe.ingredients || [];
         return ingredients.length > 0 && ingredients.every((ingredient) => ingredient.isOwned);
       },
+
     }),
     {
       name: 'recipe-progress', // key in localStorage

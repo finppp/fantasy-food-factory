@@ -7,6 +7,7 @@ import { useRecipeStore } from '@/store';
 import { IngredientList, IngredientListType } from '../IngredientList/IngredientList';
 import { Tabs } from '../Tabs';
 import { RecipeDetails } from '../RecipeDetails';
+import { Buy } from './Buy';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -15,6 +16,7 @@ interface RecipeViewerProps {
 export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
   const recipe = useRecipeStore((state) => state.recipe);
   const setRecipe = useRecipeStore((state) => state.setRecipe);
+  // const portionMultiplier = useRecipeStore((state) => state.portionMultiplier);
 
   useEffect(() => {
     setRecipe(enhanceRecipe(recipeData));
@@ -32,6 +34,7 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
       <h2>{description}</h2>
       {/* <h3>{`Prepped?: ${isPrepCompleted(recipe.ingredients)}`}</h3> */}
       {/* <h3>{`Bought?: ${areAllItemsOwned(recipe.ingredients)}`}</h3> */}
+      {/* <h2>PortionMultiplier: {portionMultiplier}</h2> */}
       <h3></h3>
       <RecipeDetails
         author={author}
@@ -41,8 +44,7 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
       />
       <Tabs tabs={[
         {
-          label: 'Buy', content: (
-            <><h2>BUY</h2><IngredientList listType={IngredientListType.buy} /></>)
+          label: 'Buy', content: <Buy />,
         },
         {
           label: 'Prep', content: (
