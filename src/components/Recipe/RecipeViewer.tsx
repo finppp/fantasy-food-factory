@@ -1,13 +1,12 @@
 "use client";
-import { DIFFICULTIES, FATBOI_RATINGS } from '@/constants';
 import { Recipe } from '@/types';
-import { areAllItemsOwned, enhanceRecipe, generateDurationText, isPrepCompleted } from '@/utils';
+import { enhanceRecipe} from '@/utils';
 import { useEffect } from 'react';
 import { useRecipeStore } from '@/store';
-import { IngredientList, IngredientListType } from '../IngredientList/IngredientList';
 import { Tabs } from '../Tabs';
 import { RecipeDetails } from '../RecipeDetails';
 import { Buy } from './Buy';
+import { Prep } from './Prep';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -47,9 +46,7 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
           label: 'Buy', content: <Buy />,
         },
         {
-          label: 'Prep', content: (
-            <><h2>PREP</h2><IngredientList listType={IngredientListType.prep} /></>
-          )
+          label: 'Prep', content: <Prep />
         },
         {
           label: 'Cook', content: (

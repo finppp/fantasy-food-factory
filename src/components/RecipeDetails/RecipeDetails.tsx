@@ -11,8 +11,7 @@ type RecipeDetailsProps = {
 };
 
 export const RecipeDetails = ({ author, difficulty, duration, unhealthinessRating }: RecipeDetailsProps) => {
-  console.log(unhealthinessRating);
-  
+
   return (
     <div className={styles.RecipeDetails}>
       <h4>By {author}</h4>

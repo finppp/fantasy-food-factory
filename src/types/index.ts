@@ -22,7 +22,7 @@ export interface Ingredient {
     name: string,
     count: number,
     unit: WeightUnit,
-    preparationMethod: PreparationMethod,
+    preparationMethod: PrepMethodKey,
 }
 
 export interface IngredientWithStatus extends Ingredient {
@@ -68,6 +68,25 @@ export enum WeightUnit {
     clove = 'clove',
     cmPiece = 'cm piece'
 }
+
+export enum PrepMethodKey {
+    Whole = 'whole',
+    Chopped = 'chopped',
+    Sliced = 'sliced',
+    Cubed = 'cubed',
+    Diced = 'diced',
+    Minced = 'minced',
+    Peeled = 'peeled',
+    Julienne = 'julienne',
+    Halved = 'halved',
+    Quartered = 'quartered',
+    Spiralised = 'spiralised',
+    Chunks = 'chunks',
+    AsItIs = 'asItIs',
+    ZestedAndJuiced = 'zestedAndJuiced',
+    Zested = 'zested',
+    Juiced = 'juiced',
+  }
 
 export enum TimeUnit {
     Seconds = 'Seconds',

@@ -1,6 +1,5 @@
 import { AUTHORS } from '@/constants/authors/authors'
-import { Recipe, TimeUnit, WeightUnit } from '@/types'
-import { PREP_METHODS } from '..'
+import { PrepMethodKey, Recipe, TimeUnit, WeightUnit } from '@/types'
 
 export const CLARIFIED_MILK_PUNCH: Recipe = {
   title: 'Clarified Milk Punch',
@@ -19,49 +18,49 @@ export const CLARIFIED_MILK_PUNCH: Recipe = {
       name: 'lemon',
       count: 6,
       unit: WeightUnit.count,
-      preparationMethod: PREP_METHODS.zestedAndJuiced
+      preparationMethod: PrepMethodKey.ZestedAndJuiced
     },
     {
       name: 'whole milk',
       count: 2,
       unit: WeightUnit.l,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     },
     {
       name: 'pineapple',
       count: 1,
       unit: WeightUnit.count,
-      preparationMethod: PREP_METHODS.chopped
+      preparationMethod: PrepMethodKey.Chopped
     },
     {
       name: 'really strong black tea',
       count: 250,
       unit: WeightUnit.ml,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     },
     {
       name: 'demmerearara sugar',
       count: 200,
       unit: WeightUnit.grams,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     },
     {
       name: 'gold rum',
       count: 500,
       unit: WeightUnit.ml,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     },
     {
       name: 'overproof rum',
       count: 200,
       unit: WeightUnit.ml,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     },
     {
       name: 'cinnamon',
       count: 1,
       unit: WeightUnit.stick,
-      preparationMethod: PREP_METHODS.asItIs
+      preparationMethod: PrepMethodKey.AsItIs
     }
   ],
   method: [

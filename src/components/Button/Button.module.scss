@@ -1,0 +1,7 @@
+.Button {
+  border: var(--border);
+  padding: 1rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}

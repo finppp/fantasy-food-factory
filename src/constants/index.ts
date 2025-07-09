@@ -1,4 +1,4 @@
-import { PreparationMethod, WeightUnit } from "@/types"
+import { PreparationMethod, PrepMethodKey, WeightUnit } from "@/types"
 
 export const PLURALIZED_UNITS = [
   WeightUnit.count,
@@ -34,29 +34,29 @@ export const FATBOI_RATINGS = [
   'Fatboi deluxe supreme'
 ]
 
-export const PREP_METHODS: { [key: string]: PreparationMethod } = {
-  whole: { pastTense: 'whole', verb: '', action: '' },
-  chopped: { pastTense: 'chopped', verb: 'chop', action: 'chopped' },
-  sliced: { pastTense: 'sliced', verb: 'slice', action: 'sliced' },
-  cubed: { pastTense: 'cubed', verb: 'cube', action: 'cubed' },
-  diced: { pastTense: 'diced', verb: 'dice', action: 'diced' },
-  minced: { pastTense: 'minced', verb: 'mince', action: 'minced' },
-  peeled: { pastTense: 'peeled', verb: 'peel', action: 'skinned' },
-  julienne: { pastTense: 'julienne', verb: 'julienne', action: 'juliennedned?' },
-  halved: { pastTense: 'halved', verb: 'halve', action: 'halved' },
-  quartered: { pastTense: 'quartered', verb: 'quarter', action: 'quartered' },
-  spiralised: { pastTense: 'spiralised', verb: 'spiralise', action: 'spun' },
-  chunks: { pastTense: 'cut into chunks', verb: 'chunky chop', action: 'chunked' },
-  asItIs: { pastTense: '', verb: '', action: '' },
-  zestedAndJuiced: {
+export const PREP_METHODS: Record<PrepMethodKey, PreparationMethod> = {
+  [PrepMethodKey.Whole]: { pastTense: 'whole', verb: '', action: '' },
+  [PrepMethodKey.Chopped]: { pastTense: 'chopped', verb: 'chop', action: 'chopped' },
+  [PrepMethodKey.Sliced]: { pastTense: 'sliced', verb: 'slice', action: 'sliced' },
+  [PrepMethodKey.Cubed]: { pastTense: 'cubed', verb: 'cube', action: 'cubed' },
+  [PrepMethodKey.Diced]: { pastTense: 'diced', verb: 'dice', action: 'diced' },
+  [PrepMethodKey.Minced]: { pastTense: 'minced', verb: 'mince', action: 'minced' },
+  [PrepMethodKey.Peeled]: { pastTense: 'peeled', verb: 'peel', action: 'skinned' },
+  [PrepMethodKey.Julienne]: { pastTense: 'julienne', verb: 'julienne', action: 'juliennedned?' },
+  [PrepMethodKey.Halved]: { pastTense: 'halved', verb: 'halve', action: 'halved' },
+  [PrepMethodKey.Quartered]: { pastTense: 'quartered', verb: 'quarter', action: 'quartered' },
+  [PrepMethodKey.Spiralised]: { pastTense: 'spiralised', verb: 'spiralise', action: 'spun' },
+  [PrepMethodKey.Chunks]: { pastTense: 'cut into chunks', verb: 'chunky chop', action: 'chunked' },
+  [PrepMethodKey.AsItIs]: { pastTense: '', verb: '', action: '' },
+  [PrepMethodKey.ZestedAndJuiced]: {
     pastTense: 'zested and juiced',
     verb: 'zest & juice',
-    action: 'grated and squeezed'
+    action: 'grated and squeezed',
   },
-  zested: { pastTense: 'zested', verb: 'zest', action: 'grated' },
-  juiced: { pastTense: 'juiced', verb: 'juice', action: 'squeezed' }
-}
+  [PrepMethodKey.Zested]: { pastTense: 'zested', verb: 'zest', action: 'grated' },
+  [PrepMethodKey.Juiced]: { pastTense: 'juiced', verb: 'juice', action: 'squeezed' },
+};
 
 // These prep methods should be auto-prepped/checked
-export const AUTO_COMPLETE_PREP_METHODS = [PREP_METHODS.asItIs, PREP_METHODS.whole]
+export const AUTO_COMPLETE_PREP_METHODS: PrepMethodKey[] = [PrepMethodKey.AsItIs, PrepMethodKey.Whole]
 
