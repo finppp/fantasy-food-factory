@@ -7,6 +7,7 @@ import { Tabs } from '../Tabs';
 import { RecipeDetails } from '../RecipeDetails';
 import { Buy } from './Buy';
 import { Prep } from './Prep';
+import { Cook } from './Cook';
 
 interface RecipeViewerProps {
   recipe: Recipe;
@@ -49,9 +50,7 @@ export const RecipeViewer = ({ recipe: recipeData }: RecipeViewerProps) => {
           label: 'Prep', content: <Prep />
         },
         {
-          label: 'Cook', content: (
-            <><h2>Cook!</h2></>
-          )
+          label: 'Cook', content: <Cook />
         },
       ]} />
     </div>

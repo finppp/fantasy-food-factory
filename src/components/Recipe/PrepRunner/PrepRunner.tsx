@@ -14,7 +14,7 @@ export const PrepRunner = () => {
   const currentIngredient = ingredients[currentIngredientIndex];
   const portionMultiplier = useRecipeStore((state) => state.portions.multiplier);
   const isPrepCompleted = currentIngredientIndex === -1;
-  console.log('currentIngredientIndex', currentIngredientIndex);
+
   return (
     <div className={styles.PrepRunner}>
       {!isPrepCompleted && (

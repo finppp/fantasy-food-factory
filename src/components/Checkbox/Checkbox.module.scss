@@ -26,12 +26,15 @@
     margin: 10px 10px 10px 0;
     border: 2px solid black;
     border-radius: 3px;
+    flex-shrink: 0;
   }
   .checkboxImage {
     height: 100%;
     width: 100%;
     padding: 3px;
+    // filter: invert(1);
   }
+  
   .text {
     &.checked {
       text-decoration: line-through;

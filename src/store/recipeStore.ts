@@ -8,6 +8,7 @@ type State = {
   setRecipe: (recipe: RecipeWithStatus) => void;
   setIngredientPreppedStatus: (ingredientIndex: number, newValue: boolean) => void;
   setIngredientOwnedStatus: (ingredientIndex: number, newValue: boolean) => void;
+  setMethodCompletedStatus: (methodIndex: number, newValue: boolean) => void;
   isPrepCompleted: boolean;
   areAllItemsOwned: boolean;
   setNumberOfPortions: (newPortionMultiplier: number) => void;
@@ -79,6 +80,16 @@ export const useRecipeStore = create<State>()(
             },
           };
         });
+      },
+      setMethodCompletedStatus: (methodIndex: number, newValue: boolean) => {
+        set((state) => {
+          const updatedRecipe = {...state.recipe}
+          updatedRecipe.method[methodIndex].completed = newValue
+          return {
+            ...state,
+            recipe: updatedRecipe,
+          }
+        })
       },
       get isPrepCompleted() {
         const ingredients = get().recipe.ingredients || [];

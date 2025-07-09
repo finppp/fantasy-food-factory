@@ -17,7 +17,7 @@ export const Checkbox = ({ onChange, label, checked }: CheckboxProps) => {
       <input checked={checked} id={id} type="checkbox" onChange={(onChange)} />
       <label className={styles.label} htmlFor={id}>
         <div className={styles.box}>
-          {checked && <img className={styles.checkboxImage} src="/icons/times-light.svg" alt="check mark" />}
+          {checked && <img className={styles.checkboxImage} src="/icons/times-light.svg" alt="check mark"/>}
         </div>
         <p className={clsx({
           [styles.text]: true,
