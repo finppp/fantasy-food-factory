@@ -11,7 +11,8 @@ export const areAllItemsOwned = (ingredients: IngredientWithStatus[]) => {
  return ingredients.every((ingredient) => ingredient.isOwned)
 }
 
-export const getIngredientString = ({ name, count, unit }: Ingredient) => {
+export const getIngredientString = ({ name, count, unit }: Ingredient, portionMultiplier: number = 1) => {
+  count = count * portionMultiplier
   name = lowerCaseFirstChar(name)
   name = pluralize(name, count)
 
@@ -30,13 +31,3 @@ export const shouldUnitBePluralised = (unit: WeightUnit) => {
 export const isIngredientAutoPrepped = (prepMethod: keyof PreparationMethod) => {
   return !PREP_METHODS[prepMethod].action
 }
-
-// /** Scale all ingredient quantities to the multiplier */
-// export const scaleIngredientQuantities = (ingredientsList, portions) => {
-//   const portionedList = ingredientsList.map((ingredient) => {
-//     const updatedIngredient = { ...ingredient }
-//     updatedIngredient.count *= portions
-//     return updatedIngredient
-//   })
-//   return portionedList
-// }
