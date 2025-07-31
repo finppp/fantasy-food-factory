@@ -1,4 +1,6 @@
 export * from './Button';
+export * from './Checkbox';
+export * from './FactCard';
 export * from './Header';
 export * from './Menu';
 export * from './Recipe';

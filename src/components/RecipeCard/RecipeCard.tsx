@@ -12,14 +12,29 @@ export type RecipeCardProps = {
 export const RecipeCard = ({ imageUrl, title, url, description, difficulty }: RecipeCardProps) => {
   return (
     <a href={url} className={styles.RecipeCard}>
-        <Image className={styles.image} width={500} height={500} src={imageUrl} alt={`${title} image`} />
-      {/* <div className={styles.imageContainer}> */}
-      {/* </div> */}
-      <div className={styles.recipeDetails}>
-        <p>{description}</p>
-        <p>{`${difficulty}/10 difficulty`}</p>
+      <div className={styles.imageContainer}>
+        <Image className={styles.image} width={500} height={200} src={imageUrl} alt={`${title} image`} />
+        <div className={styles.recipeDetailsOverlay}>
+          <div className={styles.recipeStatsContainer}>
+            <div className={styles.recipeStat}>
+              <p>{`${difficulty}/10`}</p>
+              <p>difficulty</p>
+            </div>
+            <div className={styles.recipeStat}>
+              <p>2 hours</p>
+              <p>cooking time</p>
+            </div>
+            <div className={styles.recipeStat}>
+              <p>3/10</p>
+              <p>grease level</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.recipeDetails}>
+        <h3 className={styles.title}>{title}</h3>
+        <p>{description}</p>
+      </div>
     </a>
   );
 };

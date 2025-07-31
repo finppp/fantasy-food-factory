@@ -1,5 +1,5 @@
-import { RecipeCard } from '@/components';
-import styles from "./page.module.css";
+import { FactCard, RecipeCard } from '@/components';
+import styles from "./page.module.scss";
 import utilStyles from '@/styles/utils.module.scss';
 
 export default function Home() {
@@ -8,11 +8,12 @@ export default function Home() {
       {/* <main className={styles.main}> */}
       {/* </main> */}
       <div className={utilStyles.containerAlt}>
-        <h1>Oooooooo welcome</h1>
-        <h2>FFFF has a website, baby!</h2>
+        <h1>Welcome to the greatest recipe website in entire world!</h1>
+        <h2>Have a look around</h2>
+
       </div>
       <div className={utilStyles.container}>
-        <h2>Latest Recipes</h2>
+        <h2>Latest Recipes - to be static props from BE</h2>
         <div className={utilStyles.grid}>
           <RecipeCard />
           <RecipeCard />
@@ -21,10 +22,12 @@ export default function Home() {
         </div>
       </div>
       <div className={utilStyles.containerAlt}>
-        <p>Over 7 recipes</p>
-        <p>Founded in 2019</p>
-        <p>With 1 author</p>
-        <p>700+ followers on Insta</p>
+        <div className={styles.achievements}>
+          <FactCard topText="Over" middleText="7" bottomText="recipes" />
+          <FactCard topText="Featuring" middleText="1" bottomText="author" />
+          <FactCard topText="Founded in" middleText="2019" bottomText="...whoa!" />
+          <FactCard topText="Instagram" middleText="700+" bottomText="followers" />
+        </div>
       </div>
     </div>
   );
